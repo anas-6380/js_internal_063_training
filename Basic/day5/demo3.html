@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Event Example</title>
+</head>
+<body>
+
+    <h1 id="hid1">This is first heading</h1>
+
+    <button id="btnText">Change Text</button>
+    <button id="btnColor">Change Text Color</button>
+
+<script>
+
+
+document.getElementById("btnText").addEventListener("click", function() {
+    document.getElementById("hid1").innerHTML = "Text Updated Using Event Listener!";
+});
+
+
+document.getElementById("btnColor").addEventListener("click", function() {
+    document.getElementById("hid1").style.color = "red";
+});
+
+</script>
+
+</body>
+</html>

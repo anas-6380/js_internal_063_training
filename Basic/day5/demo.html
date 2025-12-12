@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Two Buttons Example</title>
+</head>
+<body>
+    
+    <h1 id="hid1">This is first heading</h1>
+    <h2 id="hid2">This is second heading</h2>
+
+    <button onclick="changeHeading1()">Change Heading 1</button>
+    <button onclick="changeHeading2()">Change Heading 2</button>
+    <button id="bid1"> second</button>
+
+<script>
+
+function changeHeading1() {
+    document.getElementById("hid1").innerHTML = "Heading 1 Updated!";
+}
+
+function changeHeading2() {
+    document.getElementById("hid2").innerHTML = "Heading 2 Updated!";
+}
+
+document.getElementById("bid1").addEventListener("click",function()
+{
+    document.getElementById("hid1").innerHTML = "value by EVENT";
+}
+
+
+
+)
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Login Form</title>
+</head>
+<body>
+
+    <h2>Login Form</h2>
+
+    <form id="fid1">
+        <label for="uid">User ID:</label><br>
+        <input id="inid1" type="text" name="uid" placeholder="Enter your name"><br><br>
+
+        <label for="pwd">Password:</label><br>
+        <input type="password" id="pwd" name="pwd" placeholder="Enter your password"><br><br>
+
+        <button type="submit">Submit</button>
+
+        <p id="pid1" style="color: red;"></p>
+    </form>
+
+<script>
+document.getElementById("fid1").addEventListener("submit", function(event) {
+
+    event.preventDefault();  // stop default submit
+
+    let a = document.getElementById("inid1").value;
+    let error = document.getElementById("pid1");
+
+    if (a === "") {
+        error.innerHTML = "Do not leave the name empty!";
+    } 
+    else {
+        error.innerHTML = "";  // clear error
+
+        // Open picture in new tab
+        window.open(
+            "https://united.ac.in/public/home/images/ucer-banner.jpg", 
+            "_blank"
+        );
+
+        // optional: also show alert
+        // alert("Form submitted successfully!");
+    }
+
+});
+</script>
+
+</body>
+</html>
