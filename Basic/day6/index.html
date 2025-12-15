@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HCL Assessment - Home</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', Arial, sans-serif;
+            background: linear-gradient(to right, #e6f0ff, #f5f9ff);
+        }
+
+        /* Header */
+        header {
+            background-color: #0b3c8c;
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+
+        header img {
+            width: 50px;
+            position: absolute;
+            left: 30px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* Main layout */
+        .container {
+            display: flex;
+            height: 80vh;
+            padding: 30px;
+            gap: 20px;
+        }
+
+        .box {
+            padding: 20px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(6px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .left {
+            width: 30%;
+        }
+
+        .middle {
+            width: 40%;
+        }
+
+        .right {
+            width: 30%;
+        }
+
+        h3 {
+            margin-top: 0;
+            color: #0b3c8c;
+        }
+
+        /* Login form */
+        input {
+            width: 95%;
+            padding: 10px;
+            margin-bottom: 12px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-family: inherit;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            background-color: #0b3c8c;
+            color: white;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        button:hover {
+            background-color: #092f6d;
+        }
+
+        a {
+            display: block;
+            margin-top: 12px;
+            text-decoration: none;
+            color: #0b3c8c;
+            font-size: 14px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        marquee {
+            font-size: 14px;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <img src="https://i.pinimg.com/736x/c1/ce/19/c1ce199e61e5987447ff4331141abec0.jpg" alt="Logo">
+    <h1>HCL ASSESSMENT</h1>
+</header>
+
+<div class="container">
+
+    <!-- Left Section -->
+    <div class="box left">
+        <h3>About Project</h3>
+        <p>
+            This project is created to demonstrate basic HTML, CSS, and JavaScript
+            concepts including forms, navigation, and layout design.
+        </p>
+    </div>
+
+    <!-- Middle Section -->
+    <div class="box middle">
+        <h3>Latest Updates</h3>
+        <marquee direction="up" height="200">
+            Assessment starts on Monday <br><br>
+            New user registration open <br><br>
+            Login to access dashboard <br><br>
+            Results will be announced soon
+        </marquee>
+    </div>
+
+    <!-- Right Section -->
+    <!-- Right Section -->
+<div class="box right">
+    <h3>Login</h3>
+
+    <form action="nxt.html" method="GET">
+
+    <input type="text" name="username" placeholder="Enter User ID" required>
+
+    <input type="password" name="password" placeholder="Enter Password" required>
+
+    <button type="submit">Login</button>
+
+</form>
+
+
+    <a href="newuser.html">New User? Register Here</a>
+</div>
+
+
+</div>
+
+</body>
+</html>
