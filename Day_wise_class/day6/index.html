@@ -39,10 +39,36 @@
             letter-spacing: 1px;
         }
 
+        /* NAVBAR */
+        nav {
+            background-color: #0b3c8c;
+            margin: 15px 30px;
+            border-radius: 12px;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        nav ul li {
+            color: white;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        nav ul li:hover {
+            text-decoration: underline;
+        }
+
         /* Main layout */
         .container {
             display: flex;
-            height: 80vh;
+            height: 70vh;
             padding: 30px;
             gap: 20px;
         }
@@ -55,17 +81,9 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
-        .left {
-            width: 30%;
-        }
-
-        .middle {
-            width: 40%;
-        }
-
-        .right {
-            width: 30%;
-        }
+        .left { width: 30%; }
+        .middle { width: 40%; }
+        .right { width: 30%; }
 
         h3 {
             margin-top: 0;
@@ -122,6 +140,16 @@
     <h1>HCL ASSESSMENT</h1>
 </header>
 
+<!-- NAVBAR STRIP -->
+<nav>
+    <ul>
+        <li>Home</li>
+        <li>Gallery</li>
+        <li>Updates</li>
+        <li>Contact</li>
+    </ul>
+</nav>
+
 <div class="container">
 
     <!-- Left Section -->
@@ -136,7 +164,10 @@
     <!-- Middle Section -->
     <div class="box middle">
         <h3>Latest Updates</h3>
-        <marquee direction="up" height="200">
+        <marquee direction="up" 
+    height="200"
+    onmouseover="this.stop();" 
+    onmouseout="this.start();">
             Assessment starts on Monday <br><br>
             New user registration open <br><br>
             Login to access dashboard <br><br>
@@ -145,28 +176,47 @@
     </div>
 
     <!-- Right Section -->
-    <!-- Right Section -->
-<div class="box right">
-    <h3>Login</h3>
+    <div class="box right">
+        <h3>Login</h3>
 
-    <form action="nxt.html" method="GET">
+        <form id="loginForm" action="nxt.html" method="GET">
+            <input type="text" id="username" name="username" placeholder="Enter User ID">
+            <input type="password" id="password" name="password" placeholder="Enter Password">
 
-    <input type="text" name="username" placeholder="Enter User ID" required>
+            <button type="submit">Login</button>
+        </form>
 
-    <input type="password" name="password" placeholder="Enter Password" required>
+        <p id="errorMsg"></p>
 
-    <button type="submit">Login</button>
-
-</form>
-
-
-    <a href="newuser.html">New User? Register Here</a>
-</div>
-
+        <a href="newuser.html">New User? Register Here</a>
+    </div>
 
 </div>
+
+<script>
+document.getElementById("loginForm").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    let username = document.getElementById("username").value;
+    let password = document.getElementById("password").value;
+    let error = document.getElementById("errorMsg");
+
+    if (username === "") {
+        error.style.color = "red";
+        error.innerHTML = "The name is empty";
+    }
+    else if (password === "") {
+        error.style.color = "red";
+        error.innerHTML = "Password is empty";
+    }
+    else {
+        error.style.color = "green";
+        error.innerHTML = "Login successful!";
+        this.submit(); // force submit
+    }
+});
+</script>
 
 </body>
 </html>
-
-
