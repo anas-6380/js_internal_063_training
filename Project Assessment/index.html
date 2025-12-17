@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HCL Assessment - Home</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', Arial, sans-serif;
+            background: linear-gradient(to right, #e6f0ff, #f5f9ff);
+        }
+
+        header {
+            background-color: #0b3c8c;
+            color: white;
+            padding: 8px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+
+        header img {
+            width: 50px;
+            position: absolute;
+            left: 30px;
+        }
+
+        nav {
+            background-color: #0b3c8c;
+            margin: 15px 30px;
+            border-radius: 12px;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        nav ul li {
+            color: white;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .container {
+            display: flex;
+            height: 70vh;
+            padding: 30px;
+            gap: 20px;
+        }
+
+        .box {
+            padding: 20px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(6px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .left { width: 30%; }
+        .middle { width: 40%; }
+        .right { width: 30%; }
+
+        h3 { color: #0b3c8c; }
+
+        input, select {
+            width: 95%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            background-color: #0b3c8c;
+            color: white;
+            cursor: pointer;
+        }
+
+        .inline {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .inline input {
+            width: auto;
+        }
+
+        #errorMsg {
+            color: red;
+            font-size: 14px;
+        }
+
+        #successMsg {
+            color: green;
+            font-size: 14px;
+        }
+
+        #output {
+    margin-top: 15px;
+}
+
+.output-card {
+    background: #f0f6ff;
+    border-left: 4px solid #0b3c8c;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.output-card h4 {
+    margin-top: 0;
+    color: #0b3c8c;
+}
+
+.output-row {
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.output-label {
+    font-weight: 600;
+    color: #333;
+}
+    </style>
+</head>
+
+<body>
+
+<header>
+    <img src="https://i.pinimg.com/736x/c1/ce/19/c1ce199e61e5987447ff4331141abec0.jpg">
+    <h1>HCL ASSESSMENT</h1>
+</header>
+
+<nav>
+    <ul>
+        <li>Home</li>
+        <li>Gallery</li>
+        <li>Updates</li>
+        <li>Contact</li>
+    </ul>
+</nav>
+
+<div class="container">
+
+    <div class="box left">
+        <h3>About Project</h3>
+        <p style="font-size:14px; line-height:1.6;">
+    This project demonstrates a Student Registration System built using 
+    HTML, CSS, and JavaScript. It includes real-time form validation, 
+    user-friendly input handling, and dynamic display of submitted details.
+    The objective is to understand DOM manipulation, event handling, and UI design</b>
+    in a practical and structured manner.
+</p>
+    </div>
+
+    <div class="box middle">
+        <h3>Latest Updates</h3>
+        <marquee direction="up" height="200"
+            onmouseover="this.stop();"
+            onmouseout="this.start();">
+            Registration Open <br><br>
+            Fill details carefully <br><br>
+            Validation enabled <br><br>
+            Live output below
+        </marquee>
+    </div>
+
+    <div class="box right">
+        <h3>Student Registration</h3>
+
+        <form id="regForm">
+
+            <input type="text" id="name" placeholder="Enter Name">
+            <input type="email" id="email" placeholder="Enter Email">
+
+            <div class="inline">
+                <label>Gender:</label>
+                <input type="radio" name="gender" value="Male"> Male
+                <input type="radio" name="gender" value="Female"> Female
+            </div>
+
+            <select id="course">
+                <option value="">Select Course</option>
+                <option>Java</option>
+                <option>Python</option>
+                <option>JavaScript</option>
+            </select>
+
+            <div class="inline">
+                <input type="checkbox" id="terms">
+                <label>I accept Terms & Conditions</label>
+            </div>
+
+            <button type="submit">Submit</button>
+
+            <p id="errorMsg"></p>
+            <p id="successMsg"></p>
+        </form>
+
+        <div id="output"></div>
+    </div>
+
+</div>
+
+<script>
+document.getElementById("regForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let gender = document.querySelector('input[name="gender"]:checked');
+    let course = document.getElementById("course").value;
+    let terms = document.getElementById("terms").checked;
+
+    let error = document.getElementById("errorMsg");
+    let success = document.getElementById("successMsg");
+    let output = document.getElementById("output");
+
+    error.innerHTML = "";
+    success.innerHTML = "";
+    output.innerHTML = "";
+
+    if (name === "") {
+        error.innerHTML = "Name should not be empty";
+    }
+    else if (email === "") {
+    error.innerHTML = "Email should be valid";
+}
+else if (!email.includes("@") || !email.includes(".")) {
+    error.innerHTML = " Email should be valid";
+}
+
+    else if (!gender) {
+        error.innerHTML = "Gender must be selected";
+    }
+    else if (course === "") {
+        error.innerHTML = "Course must be selected";
+    }
+    else if (!terms) {
+        error.innerHTML = "Terms checkbox must be checked";
+    }
+    else {
+    success.innerHTML = "Registration Successful!";
+    success.style.color = "green";
+
+    output.innerHTML = `
+        <div style="
+            margin-top:15px;
+            padding:15px;
+            border-radius:10px;
+            background:#eef4ff;
+            color:#0b3c8c;
+            font-size:14px;
+        ">
+            <h4>Entered Details</h4>
+            <b>Name:</b> ${name} <br>
+            <b>Email:</b> ${email} <br>
+            <b>Gender:</b> ${gender.value} <br>
+            <b>Course:</b> ${course}
+        </div>
+    `;
+
+    // Redirect AFTER showing data
+    setTimeout(() => {
+        window.location.href =
+            `success.html?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&gender=${encodeURIComponent(gender.value)}&course=${encodeURIComponent(course)}`;
+    }, 800);
+}
+
+
+});
+</script>
+
+</body>
+</html>

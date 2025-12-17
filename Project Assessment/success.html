@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Success</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            background: linear-gradient(to right, #e6f0ff, #f5f9ff);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 400px;
+            margin: 80px auto;
+            padding: 25px;
+            border-radius: 15px;
+            background: rgba(255,255,255,0.85);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+            color: #0b3c8c;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .details {
+            margin-top: 15px;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .success {
+            text-align: center;
+            color: green;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="success">Registration Successful</div>
+    <h2>Student Details</h2>
+
+    <div class="details" id="details"></div>
+</div>
+
+<script>
+let params = new URLSearchParams(window.location.search);
+
+let name = params.get("name");
+let email = params.get("email");
+let gender = params.get("gender");
+let course = params.get("course");
+
+document.getElementById("details").innerHTML = `
+    <b>Name:</b> ${name} <br>
+    <b>Email:</b> ${email} <br>
+    <b>Gender:</b> ${gender} <br>
+    <b>Course:</b> ${course}
+`;
+</script>
+
+</body>
+</html>
